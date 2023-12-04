@@ -68,6 +68,8 @@ public static class MongoDBBuilderExtensions
     /// <returns>A reference to the <see cref="IResourceBuilder{MongoDBDatabaseResource}"/>.</returns>
     public static IResourceBuilder<MongoDBDatabaseResource> AddDatabase(this IResourceBuilder<MongoDBContainerResource> builder, string name)
     {
+        builder.WithEnvironment("MONGO_INITDB_DATABASE", name);
+
         var mongoDBDatabase = new MongoDBDatabaseResource(name, builder.Resource);
 
         return builder.ApplicationBuilder

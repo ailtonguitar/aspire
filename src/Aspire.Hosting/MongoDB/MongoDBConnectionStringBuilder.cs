@@ -6,6 +6,7 @@ namespace Aspire.Hosting.MongoDB;
 internal class MongoDBConnectionStringBuilder
 {
     private const string Scheme = "mongodb";
+    private const string AuthenticationDatabase = "admin";
 
     private string? _server;
     private int _port;
@@ -54,7 +55,8 @@ internal class MongoDBConnectionStringBuilder
             Host = _server,
             Port = _port,
             UserName = _userName,
-            Password = _password
+            Password = _password,
+            Path = AuthenticationDatabase
         };
 
         return builder.ToString();
