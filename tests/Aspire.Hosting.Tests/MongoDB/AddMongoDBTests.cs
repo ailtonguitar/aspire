@@ -94,6 +94,6 @@ public class AddMongoDBTests
         var connectionStringResource = Assert.Single(appModel.Resources.OfType<MongoDBDatabaseResource>());
         var connectionString = connectionStringResource.GetConnectionString();
 
-        Assert.Equal("mongodb://root:password@localhost:27017/mydatabase", connectionString);
+        Assert.Equal("mongodb://root:password@localhost:27017/admin", connectionString);
     }
 }

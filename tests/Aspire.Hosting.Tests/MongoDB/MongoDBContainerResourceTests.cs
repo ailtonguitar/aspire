@@ -10,14 +10,14 @@ namespace Aspire.Hosting.Tests.MongoDB;
 public class MongoDBContainerResourceTests
 {
     [Theory]
-    [InlineData("password", "mongodb://root:password@myserver:1000/")]
-    [InlineData("@abc!$", "mongodb://root:%40abc!$@myserver:1000/")]
-    [InlineData("mypasswordwitha\"inthemiddle", "mongodb://root:mypasswordwitha\"inthemiddle@myserver:1000/")]
-    [InlineData("mypasswordwitha\"attheend\"", "mongodb://root:mypasswordwitha\"attheend\"@myserver:1000/")]
-    [InlineData("\"mypasswordwitha\"atthestart", "mongodb://root:\"mypasswordwitha\"atthestart@myserver:1000/")]
-    [InlineData("mypasswordwitha'inthemiddle", "mongodb://root:mypasswordwitha'inthemiddle@myserver:1000/")]
-    [InlineData("mypasswordwitha'attheend'", "mongodb://root:mypasswordwitha'attheend'@myserver:1000/")]
-    [InlineData("'mypasswordwitha'atthestart", "mongodb://root:'mypasswordwitha'atthestart@myserver:1000/")]
+    [InlineData("password", "mongodb://root:password@myserver:1000/admin")]
+    [InlineData("@abc!$", "mongodb://root:%40abc!$@myserver:1000/admin")]
+    [InlineData("mypasswordwitha\"inthemiddle", "mongodb://root:mypasswordwitha\"inthemiddle@myserver:1000/admin")]
+    [InlineData("mypasswordwitha\"attheend\"", "mongodb://root:mypasswordwitha\"attheend\"@myserver:1000/admin")]
+    [InlineData("\"mypasswordwitha\"atthestart", "mongodb://root:\"mypasswordwitha\"atthestart@myserver:1000/admin")]
+    [InlineData("mypasswordwitha'inthemiddle", "mongodb://root:mypasswordwitha'inthemiddle@myserver:1000/admin")]
+    [InlineData("mypasswordwitha'attheend'", "mongodb://root:mypasswordwitha'attheend'@myserver:1000/admin")]
+    [InlineData("'mypasswordwitha'atthestart", "mongodb://root:'mypasswordwitha'atthestart@myserver:1000/admin")]
     public void TestSpecialCharactersAndEscapeForPassword(string password, string expectedConnectionString)
     {
         var connectionString = new MongoDBConnectionStringBuilder()
